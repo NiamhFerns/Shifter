@@ -14,6 +14,38 @@ config/name="Shifter"
 run/main_scene="res://scenes/ui/menus/landing_screen.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 
+[autoload]
+
+PhaseManager="*res://autoload/phase_manager.gd"
+SettingsManager="*res://autoload/settings_manager.gd"
+
 [dotnet]
 
 project/assembly_name="Shifter"
+
+[input]
+
+Up={
+"deadzone": 0.5,
+"events": []
+}
+Down={
+"deadzone": 0.5,
+"events": []
+}
+Left={
+"deadzone": 0.5,
+"events": []
+}
+Right={
+"deadzone": 0.5,
+"events": []
+}
+HueShift={
+"deadzone": 0.5,
+"events": []
+}
+PhaseShift={
+"deadzone": 0.5,
+"events": []
+}
