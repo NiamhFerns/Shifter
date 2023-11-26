@@ -26,6 +26,7 @@ texture = ExtResource("3_nk54c")
 
 [node name="PlayerCharacter" parent="Gameplay" instance=ExtResource("5_i72x4")]
 position = Vector2(78, 387)
+starting_health = 100.0
 
 [node name="MapReal" parent="Gameplay" instance=ExtResource("2_kj25r")]
 
