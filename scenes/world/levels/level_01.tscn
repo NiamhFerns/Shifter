@@ -1,3 +1,40 @@
-[gd_scene format=3 uid="uid://dfc0sbypm8ud2"]
+[gd_scene load_steps=8 format=3 uid="uid://dfc0sbypm8ud2"]
+
+[ext_resource type="Script" path="res://scenes/world/levels/level_controller.gd" id="1_sl3tu"]
+[ext_resource type="Texture2D" uid="uid://bg0mgv46uh6fp" path="res://assets/2d_sprites/white_bg.png" id="2_jerxw"]
+[ext_resource type="PackedScene" uid="uid://baxux8acdpbng" path="res://scenes/world/levels/level_01/map_real.tscn" id="2_kj25r"]
+[ext_resource type="Texture2D" uid="uid://c6bkdlwgs2qen" path="res://assets/2d_sprites/black_bg.png" id="3_nk54c"]
+[ext_resource type="PackedScene" uid="uid://dex5u6f6xmtu2" path="res://scenes/world/levels/level_01/map_alt.tscn" id="3_uan0l"]
+[ext_resource type="PackedScene" uid="uid://wwfh1lh7tmk5" path="res://scenes/objects/victory_flag.tscn" id="4_d7y50"]
+[ext_resource type="PackedScene" uid="uid://bmsfbtftx1ws2" path="res://scenes/player/player_character.tscn" id="5_i72x4"]
 
 [node name="Level01" type="Node2D"]
+
+[node name="Gameplay" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("1_sl3tu")
+
+[node name="WhiteBg" type="Sprite2D" parent="Gameplay"]
+position = Vector2(629.5, 392)
+scale = Vector2(13.6146, 8.52083)
+texture = ExtResource("2_jerxw")
+
+[node name="BlackBg" type="Sprite2D" parent="Gameplay"]
+position = Vector2(623, 388.5)
+scale = Vector2(13.5208, 8.44792)
+texture = ExtResource("3_nk54c")
+
+[node name="PlayerCharacter" parent="Gameplay" instance=ExtResource("5_i72x4")]
+position = Vector2(78, 387)
+
+[node name="MapReal" parent="Gameplay" instance=ExtResource("2_kj25r")]
+
+[node name="MapAlt" parent="Gameplay" instance=ExtResource("3_uan0l")]
+
+[node name="VictoryFlag" parent="Gameplay" instance=ExtResource("4_d7y50")]
+position = Vector2(1096, 52)
+
+[node name="Pause" type="Node2D" parent="."]
+process_mode = 2
+
+[connection signal="tree_exited" from="Gameplay" to="Gameplay" method="_on_tree_exited"]

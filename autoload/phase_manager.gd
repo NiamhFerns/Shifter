@@ -1,11 +1,20 @@
 extends Node
 
+signal phase_shift(value: bool)
+signal hue_shift(value: bool)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+# Responsible for handling when the player is in the "alternate phase".
+var phase_shifted: bool = false:
+	get:
+		return phase_shifted
+	set(value):
+		phase_shifted = value
+		phase_shift.emit(value)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+# Responsible for handling when the player is in the "alternate hue".
+var hue_shifted: bool = false:
+	get:
+		return hue_shifted
+	set(value):
+		hue_shifted = value
+		hue_shift.emit(value)

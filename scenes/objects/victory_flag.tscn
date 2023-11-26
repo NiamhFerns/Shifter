@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wwfh1lh7tmk5"]
+
+[ext_resource type="Texture2D" uid="uid://bfi51nvmsodoo" path="res://assets/2d_sprites/flag_real.png" id="1_4sx7l"]
+[ext_resource type="Texture2D" uid="uid://xt583j0re0yt" path="res://assets/2d_sprites/flag_alt.png" id="1_0427i"]
+[ext_resource type="Script" path="res://scenes/objects/victory_flag.gd" id="1_h74vv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1bsbh"]
+radius = 9.0
+height = 18.0
+
+[node name="VictoryFlag" type="Node2D"]
+script = ExtResource("1_h74vv")
+
+[node name="FlagReal" type="Sprite2D" parent="."]
+position = Vector2(0.07, 0.89)
+texture = ExtResource("1_4sx7l")
+
+[node name="FlagAlt" type="Sprite2D" parent="."]
+position = Vector2(0.07, 0.89)
+texture = ExtResource("1_0427i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(3.52, 3.52)
+shape = SubResource("CapsuleShape2D_1bsbh")
